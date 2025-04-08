@@ -26,4 +26,10 @@ variable "additional_github_checks" {
   default     = []
 }
 
+variable "archived" {
+  type        = bool
+  default     = false
+  nullable    = true
+  description = "If the repository should be archived"
+}
 # More config (rules and so on)...

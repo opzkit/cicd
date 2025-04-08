@@ -23,6 +23,7 @@ module "terraform-aws-k8s-addons-grafana-agent-operator" {
   source                   = "./repository"
   name                     = "terraform-aws-k8s-addons-grafana-agent-operator"
   additional_github_checks = local.tf_github_checks
+  archived                 = true
 }
 
 module "renovate-config" {
