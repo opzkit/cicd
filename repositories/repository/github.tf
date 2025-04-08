@@ -17,7 +17,7 @@ resource "github_repository" "repository" {
 
   allow_merge_commit = false
   allow_auto_merge   = true
-
+  archived           = var.archived
   # security_and_analysis {
   # advanced_security {
   #   status = "enabled"
