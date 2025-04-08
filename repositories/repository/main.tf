@@ -1,6 +1,5 @@
 terraform {
   required_version = ">=1.6"
-
   required_providers {
     github = {
       source  = "integrations/github"
@@ -11,8 +10,4 @@ terraform {
       version = "~> 1.17"
     }
   }
-}
-
-module "repositories" {
-  source = "./repositories"
 }

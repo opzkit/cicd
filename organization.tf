@@ -22,6 +22,16 @@ resource "github_organization_settings" "org_settings" {
   secret_scanning_enabled_for_new_repositories                 = false
   secret_scanning_push_protection_enabled_for_new_repositories = false
 }
+
+# Secret used by enable auto merge workflows
+resource "github_actions_organization_secret" "pr_github_token" {
+  secret_name     = "PR_GITHUB_TOKEN"
+  visibility      = "all"
+  plaintext_value = var.pr_github_token
+}
+
+
+
 #
 # # Secret used by enable auto merge workflows
 # resource "github_actions_organization_secret" "pr_github_token" {
