@@ -66,30 +66,18 @@ resource "github_repository_ruleset" "ruleset" {
     }
 
 
-    # required_status_checks {
-    #   required_check {
-    #     context        = "buildkite/${var.name}"
-    #     integration_id = local.buildkite_integration_id
-    #   }
-    #   required_check {
-    #     context        = "buildkite/${var.name}/pre-commit"
-    #     integration_id = local.buildkite_integration_id
-    #   }
-    #   required_check {
-    #     context        = "buildkite/${var.name}/lint-new-commit-messages"
-    #     integration_id = local.buildkite_integration_id
-    #   }
-    #   required_check {
-    #     context        = "Semantic PR"
-    #     integration_id = local.semantic_pr_integration_id
-    #   }
-    #   dynamic "required_check" {
-    #     for_each = toset(var.additional_github_checks)
-    #     content {
-    #       context        = required_check.value.context
-    #       integration_id = required_check.value.integration_id
-    #     }
-    #   }
-    # }
+    required_status_checks {
+      required_check {
+        context        = "Semantic PR"
+        integration_id = local.semantic_pr_integration_id
+      }
+      dynamic "required_check" {
+        for_each = toset(var.additional_github_checks)
+        content {
+          context        = required_check.value.context
+          integration_id = required_check.value.integration_id
+        }
+      }
+    }
   }
 }
