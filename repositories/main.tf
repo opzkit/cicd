@@ -55,6 +55,7 @@ module "example" {
   source                   = "./repository"
   name                     = "example"
   additional_github_checks = local.default_github_checks
+  archived                 = true
 }
 
 module "terraform-aws-k8s-addons-cluster-autoscaler" {
@@ -207,12 +208,6 @@ module "argocd-bootstrap-template" {
   additional_github_checks = local.tf_github_checks
 }
 
-module "cache-buildkite-plugin" {
-  source                   = "./repository"
-  name                     = "cache-buildkite-plugin"
-  additional_github_checks = local.bk_plugin_checks
-}
-
 module "opzkit_github_io" {
   source                   = "./repository"
   name                     = "opzkit.github.io"
@@ -249,5 +244,12 @@ module "terraform-aws-k8s-addons-grafana-agent-operator" {
   source                   = "./repository"
   name                     = "terraform-aws-k8s-addons-grafana-agent-operator"
   additional_github_checks = local.tf_github_checks
+  archived                 = true
+}
+
+module "cache-buildkite-plugin" {
+  source                   = "./repository"
+  name                     = "cache-buildkite-plugin"
+  additional_github_checks = local.bk_plugin_checks
   archived                 = true
 }
