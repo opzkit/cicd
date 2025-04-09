@@ -38,12 +38,6 @@ module "terraform-aws-k8s-addons-aws-sso" {
   additional_github_checks = local.tf_github_checks
 }
 
-module "github" {
-  source                   = "./repository"
-  name                     = "github"
-  additional_github_checks = local.default_github_checks
-}
-
 module "example" {
   source                   = "./repository"
   name                     = "example"
@@ -244,5 +238,12 @@ module "cache-buildkite-plugin" {
   source                   = "./repository"
   name                     = "cache-buildkite-plugin"
   additional_github_checks = local.bk_plugin_checks
+  archived                 = true
+}
+
+module "github" {
+  source                   = "./repository"
+  name                     = "github"
+  additional_github_checks = local.default_github_checks
   archived                 = true
 }
