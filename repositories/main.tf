@@ -12,13 +12,6 @@ terraform {
   }
 }
 
-
-# module "tf-template" {
-#   source                   = "./repository"
-#   name                     = "tf-template"
-#   additional_github_checks = local.tf_github_checks
-# }
-
 module "renovate-config" {
   source                   = "./repository"
   name                     = "renovate-config"
