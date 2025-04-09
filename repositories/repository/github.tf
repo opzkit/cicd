@@ -18,6 +18,20 @@ resource "github_repository" "repository" {
   allow_merge_commit = false
   allow_auto_merge   = true
   archived           = var.archived
+
+  dynamic "pages" {
+    for_each = var.pages != null ? [0] : []
+    content {
+      build_type = var.pages.build_type
+      cname      = var.pages.cname
+      source {
+        branch = var.pages.source.branch
+        path   = var.pages.source.path
+      }
+    }
+  }
+
+
   # security_and_analysis {
   # advanced_security {
   #   status = "enabled"

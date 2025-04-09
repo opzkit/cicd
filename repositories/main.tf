@@ -16,15 +16,8 @@ terraform {
 # module "tf-template" {
 #   source                   = "./repository"
 #   name                     = "tf-template"
-#   additional_github_checks = local.github_checks
+#   additional_github_checks = local.tf_github_checks
 # }
-
-module "terraform-aws-k8s-addons-grafana-agent-operator" {
-  source                   = "./repository"
-  name                     = "terraform-aws-k8s-addons-grafana-agent-operator"
-  additional_github_checks = local.tf_github_checks
-  archived                 = true
-}
 
 module "renovate-config" {
   source                   = "./repository"
@@ -194,4 +187,67 @@ module "terraform-aws-aurora-mysql" {
   source                   = "./repository"
   name                     = "terraform-aws-aurora-mysql"
   additional_github_checks = local.tf_github_checks
+}
+
+module "terraform-aws-aurora-postgresql" {
+  source                   = "./repository"
+  name                     = "terraform-aws-aurora-postgresql"
+  additional_github_checks = local.tf_github_checks
+}
+
+module "terraform-aws-k8s-argocd-cluster-secret" {
+  source                   = "./repository"
+  name                     = "terraform-aws-k8s-argocd-cluster-secret"
+  additional_github_checks = local.tf_github_checks
+}
+
+module "argocd-bootstrap-template" {
+  source                   = "./repository"
+  name                     = "argocd-bootstrap-template"
+  additional_github_checks = local.tf_github_checks
+}
+
+module "cache-buildkite-plugin" {
+  source                   = "./repository"
+  name                     = "cache-buildkite-plugin"
+  additional_github_checks = local.bk_plugin_checks
+}
+
+module "opzkit_github_io" {
+  source                   = "./repository"
+  name                     = "opzkit.github.io"
+  additional_github_checks = local.default_github_checks
+  pages = {
+    build_type = "legacy"
+    cname      = "opzkit.io"
+    source = {
+      branch = "main"
+      path   = "/"
+    }
+  }
+}
+
+module "auth0" {
+  source   = "./repository"
+  name     = "auth0"
+  archived = true
+}
+
+module "deliverybot" {
+  source   = "./repository"
+  name     = "deliverybot"
+  archived = true
+}
+
+module "terraform-aws-k8s-aws-lb-role-fix" {
+  source   = "./repository"
+  name     = "terraform-aws-k8s-aws-lb-role-fix"
+  archived = true
+}
+
+module "terraform-aws-k8s-addons-grafana-agent-operator" {
+  source                   = "./repository"
+  name                     = "terraform-aws-k8s-addons-grafana-agent-operator"
+  additional_github_checks = local.tf_github_checks
+  archived                 = true
 }
