@@ -1,9 +1,7 @@
 name: pre-commit
-
-on:
-  pull_request: [ main ]
-
 permissions: read-all
+
+on: [ pull_request ]
 
 jobs:
   pre-commit:
