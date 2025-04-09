@@ -32,4 +32,19 @@ variable "archived" {
   nullable    = true
   description = "If the repository should be archived"
 }
+
+variable "pages" {
+  type = object({
+    build_type = string
+    cname      = string
+    source = object({
+      branch = string
+      path   = string
+    })
+  })
+  default     = null
+  nullable    = true
+  description = "Github pages configuration block"
+}
+
 # More config (rules and so on)...
