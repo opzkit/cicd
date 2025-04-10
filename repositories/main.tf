@@ -12,13 +12,6 @@ terraform {
   }
 }
 
-
-# module "tf-template" {
-#   source                   = "./repository"
-#   name                     = "tf-template"
-#   additional_github_checks = local.tf_github_checks
-# }
-
 module "renovate-config" {
   source                   = "./repository"
   name                     = "renovate-config"
@@ -43,12 +36,6 @@ module "terraform-aws-k8s-addons-aws-sso" {
   source                   = "./repository"
   name                     = "terraform-aws-k8s-addons-aws-sso"
   additional_github_checks = local.tf_github_checks
-}
-
-module "github" {
-  source                   = "./repository"
-  name                     = "github"
-  additional_github_checks = local.default_github_checks
 }
 
 module "example" {
@@ -251,5 +238,12 @@ module "cache-buildkite-plugin" {
   source                   = "./repository"
   name                     = "cache-buildkite-plugin"
   additional_github_checks = local.bk_plugin_checks
+  archived                 = true
+}
+
+module "github" {
+  source                   = "./repository"
+  name                     = "github"
+  additional_github_checks = local.default_github_checks
   archived                 = true
 }
