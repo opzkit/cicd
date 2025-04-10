@@ -192,7 +192,7 @@ module "terraform-aws-k8s-argocd-cluster-secret" {
 module "argocd-bootstrap-template" {
   source                   = "./repository"
   name                     = "argocd-bootstrap-template"
-  additional_github_checks = local.tf_github_checks
+  additional_github_checks = local.default_github_checks
 }
 
 module "opzkit_github_io" {
