@@ -59,10 +59,17 @@ resource "github_repository_ruleset" "ruleset" {
     }
   }
 
+  # Allow Repository admin to override rules
   bypass_actors {
-    actor_id    = 5
+    actor_id    = 5 # Repository admin
     actor_type  = "RepositoryRole"
     bypass_mode = "always"
+  }
+  # Allow renovate bot to auto merge PRs
+  bypass_actors {
+    actor_id    = 1208199 # Renovate bot app id
+    actor_type  = "Integration"
+    bypass_mode = "pull_request"
   }
 
   rules {
