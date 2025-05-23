@@ -215,41 +215,42 @@ module "opzkit_github_io" {
   }
 }
 
-module "auth0" {
-  source   = "./repository"
-  name     = "auth0"
-  archived = true
-}
-
-module "deliverybot" {
-  source   = "./repository"
-  name     = "deliverybot"
-  archived = true
-}
-
-module "terraform-aws-k8s-aws-lb-role-fix" {
-  source   = "./repository"
-  name     = "terraform-aws-k8s-aws-lb-role-fix"
-  archived = true
-}
-
-module "terraform-aws-k8s-addons-grafana-agent-operator" {
-  source                   = "./repository"
-  name                     = "terraform-aws-k8s-addons-grafana-agent-operator"
-  additional_github_checks = local.tf_github_checks
-  archived                 = true
-}
-
-module "cache-buildkite-plugin" {
-  source                   = "./repository"
-  name                     = "cache-buildkite-plugin"
-  additional_github_checks = local.bk_plugin_checks
-  archived                 = true
-}
-
-module "github" {
-  source                   = "./repository"
-  name                     = "github"
-  additional_github_checks = local.default_github_checks
-  archived                 = true
-}
+# Archived repositories, commented out to avoid problems when updating repository configuration
+# module "auth0" {
+#   source   = "./repository"
+#   name     = "auth0"
+#   archived = true
+# }
+#
+# module "deliverybot" {
+#   source   = "./repository"
+#   name     = "deliverybot"
+#   archived = true
+# }
+#
+# module "terraform-aws-k8s-aws-lb-role-fix" {
+#   source   = "./repository"
+#   name     = "terraform-aws-k8s-aws-lb-role-fix"
+#   archived = true
+# }
+#
+# module "terraform-aws-k8s-addons-grafana-agent-operator" {
+#   source                   = "./repository"
+#   name                     = "terraform-aws-k8s-addons-grafana-agent-operator"
+#   additional_github_checks = local.tf_github_checks
+#   archived                 = true
+# }
+#
+# module "cache-buildkite-plugin" {
+#   source                   = "./repository"
+#   name                     = "cache-buildkite-plugin"
+#   additional_github_checks = local.bk_plugin_checks
+#   archived                 = true
+# }
+#
+# module "github" {
+#   source                   = "./repository"
+#   name                     = "github"
+#   additional_github_checks = local.default_github_checks
+#   archived                 = true
+# }
