@@ -65,12 +65,6 @@ resource "github_repository_ruleset" "ruleset" {
     actor_type  = "RepositoryRole"
     bypass_mode = "always"
   }
-  # Allow renovate bot to auto merge PRs
-  bypass_actors {
-    actor_id    = 1208199 # Renovate bot app id
-    actor_type  = "Integration"
-    bypass_mode = "pull_request"
-  }
 
   rules {
     creation                = true
@@ -81,9 +75,10 @@ resource "github_repository_ruleset" "ruleset" {
     non_fast_forward        = true
 
     pull_request {
-      require_code_owner_review       = true
-      dismiss_stale_reviews_on_push   = true
-      required_approving_review_count = 1
+      require_code_owner_review         = false
+      dismiss_stale_reviews_on_push     = true
+      required_review_thread_resolution = true
+      required_approving_review_count   = 1
     }
 
 
