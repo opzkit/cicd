@@ -195,6 +195,12 @@ module "terraform-aws-k8s-addons-descheduler" {
   additional_github_checks = local.tf_github_checks
 }
 
+module "terraform-aws-k8s-addons-argocd-cluster-secrets" {
+  source                   = "./repository"
+  name                     = "terraform-aws-k8s-addons-argocd-cluster-secrets"
+  additional_github_checks = local.tf_github_checks
+}
+
 module "argocd-bootstrap-template" {
   source                   = "./repository"
   name                     = "argocd-bootstrap-template"
