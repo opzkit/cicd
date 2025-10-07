@@ -38,13 +38,6 @@ module "terraform-aws-k8s-addons-aws-sso" {
   additional_github_checks = local.tf_github_checks
 }
 
-module "example" {
-  source                   = "./repository"
-  name                     = "example"
-  additional_github_checks = local.default_github_checks
-  archived                 = true
-}
-
 module "terraform-aws-k8s-addons-cluster-autoscaler" {
   source                   = "./repository"
   name                     = "terraform-aws-k8s-addons-cluster-autoscaler"
@@ -257,6 +250,12 @@ module "opzkit_github_io" {
 # module "github" {
 #   source                   = "./repository"
 #   name                     = "github"
+#   additional_github_checks = local.default_github_checks
+#   archived                 = true
+# }
+# module "example" {
+#   source                   = "./repository"
+#   name                     = "example"
 #   additional_github_checks = local.default_github_checks
 #   archived                 = true
 # }
