@@ -200,6 +200,12 @@ module "argocd-bootstrap-template" {
   additional_github_checks = local.default_github_checks
 }
 
+module "database-user-operator" {
+  source                   = "./repository"
+  name                     = "database-user-operator"
+  additional_github_checks = flatten([local.default_github_checks, local.build_check])
+}
+
 module "opzkit_github_io" {
   source                   = "./repository"
   name                     = "opzkit.github.io"
