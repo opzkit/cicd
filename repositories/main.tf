@@ -210,10 +210,6 @@ module "database-user-operator" {
       integration_id = local.integration_id
     },
     {
-      context        = "Build"
-      integration_id = local.integration_id
-    },
-    {
       context        = "Integration Tests"
       integration_id = local.integration_id
     },
