@@ -201,9 +201,39 @@ module "argocd-bootstrap-template" {
 }
 
 module "database-user-operator" {
-  source                   = "./repository"
-  name                     = "database-user-operator"
-  additional_github_checks = flatten([local.default_github_checks, local.build_check])
+  source = "./repository"
+  name   = "database-user-operator"
+  additional_github_checks = [
+    local.commitlint_check,
+    {
+      context        = "Build and Push"
+      integration_id = local.integration_id
+    },
+    {
+      context        = "Build"
+      integration_id = local.integration_id
+    },
+    {
+      context        = "Integration Tests"
+      integration_id = local.integration_id
+    },
+    {
+      context        = "Lint"
+      integration_id = local.integration_id
+    },
+    {
+      context        = "Test"
+      integration_id = local.integration_id
+    },
+    {
+      context        = "Trivy"
+      integration_id = 57789
+    },
+    {
+      context        = "Verify Manifests"
+      integration_id = local.integration_id
+    }
+  ]
 }
 
 module "opzkit_github_io" {
