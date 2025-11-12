@@ -1,23 +1,24 @@
 locals {
+  integration_id = 15368
   build_check = {
     context : "build",
-    integration_id : 15368
+    integration_id : local.integration_id
   }
   commitlint_check = {
     context : "commitlint",
-    integration_id : 15368
+    integration_id : local.integration_id
   }
   precommit_check = {
     context : "pre-commit",
-    integration_id : 15368
+    integration_id : local.integration_id
   }
   bk_plugin_checks = [
     {
       context        = "plugin-linter"
-      integration_id = 15368
+      integration_id = local.integration_id
       }, {
       context        = "plugin-tester"
-      integration_id = 15368
+      integration_id = local.integration_id
     }
   ]
   default_github_checks = [
