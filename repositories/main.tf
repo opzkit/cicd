@@ -199,6 +199,11 @@ module "argocd-bootstrap-template" {
   name                     = "argocd-bootstrap-template"
   additional_github_checks = local.default_github_checks
 }
+module "terraform-aws-k8s-addons-aws-load-balancer-controller" {
+  source                   = "./repository"
+  name                     = "terraform-aws-k8s-addons-aws-load-balancer-controller"
+  additional_github_checks = local.default_github_checks
+}
 
 module "database-user-operator" {
   source = "./repository"
